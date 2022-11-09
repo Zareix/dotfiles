@@ -1,0 +1,7 @@
+[user]
+	email = raphcatarino@gmail.com
+	name = Raphaël Catarino
+[core]
+	excludesFile = ~/.gitignore
+[init]
+	defaultBranch = main
