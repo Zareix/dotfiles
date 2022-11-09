@@ -2,6 +2,6 @@
 	email = raphcatarino@gmail.com
 	name = Raphaël Catarino
 [core]
-	excludesFile = ~/.gitignore
+	excludesFile = ~/.mygitignore
 [init]
 	defaultBranch = main
