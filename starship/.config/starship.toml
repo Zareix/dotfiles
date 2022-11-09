@@ -1,0 +1,52 @@
+format = """$battery$env_var $all$line_break"""
+
+[character]
+disabled = true
+
+[username]
+disabled = false
+format = "[$user]($style) "
+show_always = true
+style_root = "black bold"
+style_user = "white bold"
+
+[directory]
+format = "at [$path]($style)[$read_only]($read_only_style) "
+home_symbol = " ~"
+read_only = "  "
+read_only_style = "red"
+truncation_length = 4
+truncation_symbol = "…/"
+
+[hostname]
+format = "using [ssh/]($style)[$hostname]($style bold) "
+style = "dimmed green"
+
+[localip]
+disabled = true
+
+[env_var.STARSHIP_DISTRO]
+disabled = false
+format = '[$env_value](white)'
+variable = "STARSHIP_DISTRO"
+
+[time]
+disabled = true
+
+[git_branch]
+format = "on [$symbol$branch]($style) "
+style = "bold green"
+symbol = " "
+truncation_symbol = "…/"
+
+[nodejs]
+format = "using [$symbol($version )]($style)"
+
+[gcloud]
+disabled = true
+
+[package]
+disabled = true
+
+[container]
+disabled = true
