@@ -1,3 +1,3 @@
 #!/bin/sh
 
-stow git neofetch starship zsh
+stow --adopt git neofetch starship zsh
