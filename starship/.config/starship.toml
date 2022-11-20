@@ -1,4 +1,4 @@
-format = """$battery$env_var $all$line_break"""
+format = """$battery$env_var $all $line_break"""
 
 [character]
 disabled = true
