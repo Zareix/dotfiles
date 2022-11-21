@@ -8,6 +8,8 @@
 eval "$(starship init zsh)"
 
 # Prompt neofetch
-neofetch
+if [[ "$TERM_PROGRAM" != "vscode" ]]; then
+  neofetch
+fi
 
 [[ -f ~/.zsh/check_reboots.zsh ]] && ~/.zsh/check_reboots.zsh
