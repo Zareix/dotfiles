@@ -1,3 +1,11 @@
+function ippublic() {
+  curl http://ident.me
+}
+
+function iplocal() {
+  ifconfig | grep "inet " | grep -i mask | awk '{print $2}'| cut -f2 -d:
+}
+
 function pfd() {
   osascript 2>/dev/null <<EOF
     tell application "Finder"
@@ -21,7 +29,6 @@ function copypath {
   echo \"${file:a}\" copied to clipboard.
 }
 
-# Colormap
 function colormap() {
   for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 }

@@ -1,6 +1,5 @@
 alias grep="grep --color"
 alias json="jq"
-alias getip="ifconfig | grep 192."
 alias y="yarn"
 alias p="pnpm"
 alias home="cd ~"
