@@ -7,6 +7,8 @@
 # Load Starship
 eval "$(starship init zsh)"
 
+clear
+
 # Prompt neofetch
 if [[ "$TERM_PROGRAM" != "vscode" ]]; then
   neofetch
