@@ -1,9 +1,16 @@
 [user]
 	email = raphcatarino@gmail.com
 	name = Raphaël Catarino
+	signingKey = ""
 [core]
 	excludesFile = ~/.mygitignore
 [init]
 	defaultBranch = main
 [pull]
     rebase = false
+[gpg]
+	program = gpg
+[commit]
+	gpgSign = false
+[tag]
+	forceSignAnnotated = false
