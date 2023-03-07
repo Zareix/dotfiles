@@ -1,4 +1,3 @@
-# find out which distribution we are running on
 if test -n "$(find /etc -maxdepth 1 -name '*-release' -print -quit)"
 then
   _distro=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
@@ -13,8 +12,6 @@ if [[ $_hostname == *rpi* || $_hostname == *raspberry* ]]; then
   _distro="raspbian"
 fi
 
-# set an icon based on the distro
-# make sure your font is compatible with https://github.com/lukas-w/font-logos
 case $_distro in
     *kali*)                  ICON="ﴣ";;
     *arch*)                  ICON="";;
