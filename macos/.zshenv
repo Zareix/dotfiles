@@ -17,8 +17,6 @@ export PATH="$PATH:/Users/raphaelgc/Dev/flutter/bin"
 # Use Brave instead of Chrome for web-dev in Flutter
 export CHROME_EXECUTABLE="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
 
-export HOMEBREW_GITHUB_API_TOKEN=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
-
 # PATH for Maven
 export M3_HOME="/Users/raphaelgc/Dev/SDK/apache-maven-3.8.5"
 export M3="${M3_HOME}/bin"
