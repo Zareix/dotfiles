@@ -10,7 +10,7 @@ $all $line_break"""
 disabled = true
 
 [container]
-disabled = false
+disabled = true
 
 [custom.using]
 command = 'if [ -n "$SSH_CONNECTION" ]; then if [[ $(uname -a) == *"orbstack"* ]]; then echo "orb/"; else echo "ssh/"; fi; else echo ""; fi'
