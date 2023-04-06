@@ -1,52 +1,76 @@
-format = """$battery$env_var $all $line_break"""
+format = """
+$battery\
+${env_var.STARSHIP_DISTRO} \
+$username \
+${custom.using}$hostname \
+$directory \
+$all $line_break"""
 
 [character]
 disabled = true
 
-[username]
+[container]
 disabled = false
-format = "[$user]($style) "
-show_always = true
-style_root = "black bold"
-style_user = "white bold"
+
+[custom.using]
+command = 'if [ -n "$SSH_CONNECTION" ]; then if [[ $(uname -a) == *"orbstack"* ]]; then echo "orb/"; else echo "ssh/"; fi; else echo ""; fi'
+format = 'using [$output]($style)'
+style = "dimmed green"
+when = true
 
 [directory]
-format = "at [$path]($style)[$read_only]($read_only_style) "
+format = "at [$path]($style)[$read_only]($read_only_style)"
 home_symbol = " ~"
 read_only = "  "
 read_only_style = "red"
 truncation_length = 4
 truncation_symbol = "…/"
 
-[hostname]
-format = "using [ssh/]($style)[$hostname]($style bold) "
-style = "dimmed green"
-
-[localip]
-disabled = true
+[docker_context]
+format = "[$symbol/$context]($style) "
+symbol = "🐳"
 
 [env_var.STARSHIP_DISTRO]
 disabled = false
 format = '[$env_value](white)'
 variable = "STARSHIP_DISTRO"
 
-[time]
+[gcloud]
 disabled = true
 
 [git_branch]
-format = "on [$symbol$branch]($style) "
+format = "on [$symbol/$branch]($style) "
 style = "bold green"
-symbol = " "
+symbol = ""
 truncation_symbol = "…/"
 
-[nodejs]
-format = "using [$symbol($version )]($style)"
+[hostname]
+format = "[$hostname]($style bold)"
+ssh_only = false
+style = "dimmed green"
 
-[gcloud]
+[localip]
 disabled = true
+
+[nodejs]
+format = "[$symbol $version]($style)"
+symbol = ""
 
 [package]
 disabled = true
 
-[container]
+[rust]
+format = "[$symbol($version )]($style)"
+
+[terraform]
+format = "[$symbol$workspace]($style) "
+
+[time]
 disabled = true
+
+[username]
+disabled = false
+format = "[$user]($style)"
+show_always = true
+style_root = "black bold"
+style_user = "white bold"
