@@ -1,6 +1,6 @@
 format = """
 $battery\
-${env_var.STARSHIP_DISTRO} \
+$env_var \
 $username \
 ${custom.using}$hostname \
 $directory \
