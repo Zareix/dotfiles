@@ -20,7 +20,7 @@ when = true
 
 [directory]
 format = "at [$path]($style)[$read_only]($read_only_style)"
-home_symbol = " ~"
+home_symbol = " ~"
 read_only = "  "
 read_only_style = "red"
 truncation_length = 4
@@ -41,11 +41,11 @@ disabled = true
 [git_branch]
 format = "on [$symbol/$branch]($style) "
 style = "bold green"
-symbol = ""
+symbol = ""
 truncation_symbol = "…/"
 
 [hostname]
-format = "[$hostname]($style bold)"
+format = "[$hostname]($style bold) "
 ssh_only = false
 style = "dimmed green"
 
@@ -53,14 +53,14 @@ style = "dimmed green"
 disabled = true
 
 [nodejs]
-format = "[$symbol $version]($style)"
+format = "[$symbol $version]($style) "
 symbol = ""
 
 [package]
 disabled = true
 
 [rust]
-format = "[$symbol($version )]($style)"
+format = "[$symbol$version]($style) "
 
 [terraform]
 format = "[$symbol$workspace]($style) "
