@@ -8,11 +8,12 @@
 # Load Starship
 eval "$(starship init zsh)"
 
-clear
-
 # Prompt neofetch
 if [[ "$TERM_PROGRAM" != "vscode" ]]; then
   neofetch
 fi
 
 [[ -f ~/.zsh/check_reboots.zsh ]] && ~/.zsh/check_reboots.zsh
+
+# bun completions
+[ -s "/Users/raphaelgc/.bun/_bun" ] && source "/Users/raphaelgc/.bun/_bun"

@@ -1,6 +1,6 @@
 [user]
-    email = raphcatarino@gmail.com
-    name = Raphaël Catarino
+	email = raphcatarino@gmail.com
+	name = Raphaël Catarino
     signingKey = ""
 [core]
     excludesFile = ~/.mygitignore
