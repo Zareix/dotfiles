@@ -3,7 +3,7 @@ function ippublic() {
 }
 
 function iplocal() {
-  ifconfig | grep "inet " | grep -i mask | awk '{print $2}'| cut -f2 -d:
+  ifconfig | grep "inet " | grep -i mask | awk '{print $2}' | cut -f2 -d:
 }
 
 function pfd() {
@@ -18,8 +18,8 @@ function cdf() {
   cd "$(pfd)"
 }
 
-function clipcopy() { 
-  pbcopy < "${1:-/dev/stdin}"; 
+function clipcopy() {
+  pbcopy <"${1:-/dev/stdin}"
 }
 
 function copypath {
@@ -29,6 +29,16 @@ function copypath {
   echo \"${file:a}\" copied to clipboard.
 }
 
-function colormap() {
-  for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
+function p() {
+  if [[ -f bun.lockb ]]; then
+    command bun "$@"
+  elif [[ -f pnpm-lock.yaml ]]; then
+    command pnpm "$@"
+  elif [[ -f yarn.lock ]]; then
+    command yarn "$@"
+  elif [[ -f package-lock.json ]]; then
+    command npm "$@"
+  else
+    command bun "$@"
+  fi
 }

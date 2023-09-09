@@ -1,8 +1,5 @@
 alias grep="grep --color"
 alias json="jq"
-alias y="yarn"
-alias p="pnpm"
-alias home="cd ~"
 alias ..="cd .."
 alias ls="exa --icons --group-directories-first"
 alias ll="ls -l"
