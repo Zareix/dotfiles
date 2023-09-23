@@ -6,6 +6,9 @@
 [[ -f ~/.zsh/linux.zsh ]] && source ~/.zsh/linux.zsh
 [[ -f ~/.zsh/macos.zsh ]] && source ~/.zsh/macos.zsh
 
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
 # Load Starship
 eval "$(starship init zsh)"
 
