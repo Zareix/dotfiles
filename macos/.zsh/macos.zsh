@@ -17,3 +17,6 @@ function bwses() {
     BW_SESSION=$(bw unlock --raw)
     export BW_SESSION
 }
+
+# bun completions
+[ -s "/Users/raphaelgc/.bun/_bun" ] && source "/Users/raphaelgc/.bun/_bun"

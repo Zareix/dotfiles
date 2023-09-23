@@ -11,7 +11,11 @@
     rebase = false
 [gpg]
     program = gpg
+	format = openpgp
 [commit]
     gpgSign = false
 [tag]
     forceSignAnnotated = false
+[gpg "ssh"]
+	program = ssh-keygen
+	allowedSignersFile = ""

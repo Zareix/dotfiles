@@ -3,6 +3,7 @@
 [[ -f ~/.zsh/functions.zsh ]] && source ~/.zsh/functions.zsh
 [[ -f ~/.zsh/starship.zsh ]] && source ~/.zsh/starship.zsh
 [[ -f ~/.zsh/locales.zsh ]] && source ~/.zsh/locales.zsh
+[[ -f ~/.zsh/linux.zsh ]] && source ~/.zsh/linux.zsh
 [[ -f ~/.zsh/macos.zsh ]] && source ~/.zsh/macos.zsh
 
 # Load Starship
@@ -14,6 +15,3 @@ if [[ "$TERM_PROGRAM" != "vscode" ]]; then
 fi
 
 [[ -f ~/.zsh/check_reboots.zsh ]] && ~/.zsh/check_reboots.zsh
-
-# bun completions
-[ -s "/Users/raphaelgc/.bun/_bun" ] && source "/Users/raphaelgc/.bun/_bun"
