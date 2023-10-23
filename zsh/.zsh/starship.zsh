@@ -11,7 +11,7 @@ if [[ $_hostname == *rpi* || $_hostname == *raspberry* ]]; then
 fi
 
 case $_distro in
-*kali*) ICON="ﴣ" ;;
+*kali*) ICON="" ;;
 *arch*) ICON="" ;;
 *debian*) ICON="" ;;
 *raspbian*) ICON="" ;;

@@ -4,7 +4,7 @@
     signingKey = ""
 [core]
     excludesFile = ~/.mygitignore
-    ignoreCase = false
+	ignorecase = false
 [init]
     defaultBranch = main
 [pull]
