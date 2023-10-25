@@ -2,7 +2,8 @@ format = """
 $battery\
 $env_var \
 $username \
-${custom.using}$hostname \
+${custom.using}\
+$hostname\
 $directory \
 $all $line_break"""
 
