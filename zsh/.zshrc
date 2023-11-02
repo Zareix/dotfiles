@@ -14,7 +14,12 @@ eval "$(starship init zsh)"
 
 # Prompt neofetch
 if [[ "$TERM_PROGRAM" != "vscode" ]]; then
-  neofetch
+  _hostname=$(hostname)
+  if [[ $_hostname == *rpi* || $_hostname == *raspberry* ]]; then
+    neofetch --ascii_distro Raspbian
+  else
+    neofetch
+  fi
 fi
 
 [[ -f ~/.zsh/check_reboots.zsh ]] && ~/.zsh/check_reboots.zsh
