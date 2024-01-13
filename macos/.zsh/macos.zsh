@@ -3,9 +3,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Added by OrbStack: command-line tools and integration
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 
-# Load pyenv
-eval "$(pyenv init -)"
-
 # Load fnm
 eval "$(fnm env --use-on-cd)"
 
@@ -14,6 +11,7 @@ alias batcat="bat"
 alias dup="docker compose up -d"
 alias bwsession="bwses"
 alias bwunlock="bwses"
+alias python="python3"
 
 function bwses() {
     BW_SESSION=$(bw unlock --raw)
