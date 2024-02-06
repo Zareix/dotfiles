@@ -18,6 +18,7 @@ alias py="python"
 alias portsused="rustscan -a 0.0.0.0"
 alias portinuse="rustscan -a 0.0.0.0 -p"
 alias tf="terraform"
+alias dup="docker compose up -d"
 
 if [ "$EUID" -eq 0 ]; then
     alias sudo=""
