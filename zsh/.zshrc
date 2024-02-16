@@ -6,28 +6,15 @@
 [[ -f ~/.zsh/linux.zsh ]] && source ~/.zsh/linux.zsh
 [[ -f ~/.zsh/macos.zsh ]] && source ~/.zsh/macos.zsh
 
-_hostname=$(hostname)
-
-if [[ $_hostname == *rpi* || $_hostname == *raspberry* ]]; then
-  [[ -f ~/.zsh/rpi.zsh ]] && source ~/.zsh/rpi.zsh
-fi
-
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# Prompt neofetch
+if [[ "$TERM_PROGRAM" != "vscode" ]]; then
+  neofetch --ascii_distro $NEOFETCH_OS
+fi
 
 # Load Starship
 eval "$(starship init zsh)"
 
-# Prompt neofetch
-if [[ "$TERM_PROGRAM" != "vscode" ]]; then
-  if [[ $_hostname == *rpi* || $_hostname == *raspberry* ]]; then
-    neofetch --ascii_distro Raspbian
-  else
-    neofetch
-  fi
-fi
-
 [[ -f ~/.zsh/check_reboots.zsh ]] && ~/.zsh/check_reboots.zsh
-
-# bun completions
-[ -s "/Users/raphaelgc/.bun/_bun" ] && source "/Users/raphaelgc/.bun/_bun"
