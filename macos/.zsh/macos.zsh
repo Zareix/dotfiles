@@ -11,6 +11,8 @@ alias batcat="bat"
 alias bwsession="bwses"
 alias bwunlock="bwses"
 alias python="python3"
+alias oif="open $PWD"
+alias ofd="open $PWD"
 
 function bwses() {
     BW_SESSION=$(bw unlock --raw)
