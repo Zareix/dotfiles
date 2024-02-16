@@ -2,10 +2,12 @@ format = """
 $battery\
 $env_var \
 $username \
-${custom.using}\
-$hostname\
+${custom.using}$hostname\
 $directory \
-$all $line_break"""
+$all \
+$line_break"""
+
+command_timeout = 750
 
 [character]
 disabled = true
