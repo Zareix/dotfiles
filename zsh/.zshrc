@@ -14,6 +14,9 @@ if [[ "$TERM_PROGRAM" != "vscode" ]]; then
   neofetch --ascii_distro $NEOFETCH_OS
 fi
 
+# Load zoxide
+eval "$(zoxide init --cmd cd zsh)"
+
 # Load Starship
 eval "$(starship init zsh)"
 
