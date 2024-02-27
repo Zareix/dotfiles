@@ -36,4 +36,5 @@ case $_distro in
 *) ICON="" ;;
 esac
 
-export STARSHIP_DISTRO="$ICON"
+export DISTRO="$_distro"
+export DISTRO_ICON="$ICON"

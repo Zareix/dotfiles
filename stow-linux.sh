@@ -1,3 +1,3 @@
 #!/bin/sh
 
-stow --adopt git nano neofetch starship zsh linux
+stow --adopt git nano fastfetch starship zsh linux

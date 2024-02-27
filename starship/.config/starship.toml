@@ -33,10 +33,10 @@ truncation_symbol = "…/"
 format = "[$symbol/$context]($style) "
 symbol = "🐳"
 
-[env_var.STARSHIP_DISTRO]
+[env_var.DISTRO_ICON]
 disabled = false
 format = '[$env_value](white)'
-variable = "STARSHIP_DISTRO"
+variable = "DISTRO_ICON"
 
 [gcloud]
 disabled = true
