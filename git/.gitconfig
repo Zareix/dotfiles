@@ -1,6 +1,6 @@
 [user]
-	email = raphael.catarino@sepefrei.fr
-	name = Raphaël G. Catarino
+	email = raphcatarino@gmail.com
+	name = Raphaël Catarino
     signingKey = ""
 [core]
     excludesFile = ~/.mygitignore

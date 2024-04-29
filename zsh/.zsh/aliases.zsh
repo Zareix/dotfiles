@@ -20,6 +20,10 @@ alias dc="docker compose"
 alias dup="docker compose up -d"
 # alias dup-dev="docker compose -f docker-compose.dev.yml up -d"
 
+if [ "$EUID" -eq 0 ]; then
+    alias sudo=""
+fi
+
 function dc-dev() {
     if [ -f "docker-compose.dev.yml" ]; then
         docker compose -f docker-compose.dev.yml "$@"
@@ -48,6 +52,43 @@ function dup-dev() {
     fi
 }
 
-if [ "$EUID" -eq 0 ]; then
-    alias sudo=""
-fi
+function ippublic() {
+    curl http://ident.me
+}
+
+function iplocal() {
+    ifconfig | grep "inet " | grep -i mask | awk '{print $2}' | cut -f2 -d:
+}
+
+function p() {
+    if [[ -f bun.lockb ]]; then
+        command bun "$@"
+    elif [[ -f pnpm-lock.yaml ]]; then
+        command pnpm "$@"
+    elif [[ -f yarn.lock ]]; then
+        command yarn "$@"
+    elif [[ -f package-lock.json ]]; then
+        command npm "$@"
+    else
+        command bun "$@"
+    fi
+}
+
+function px() {
+    if [[ -f bun.lockb ]]; then
+        command bunx "$@"
+    elif [[ -f pnpm-lock.yaml ]]; then
+        command pnpx "$@"
+    elif [[ -f yarn.lock ]] || [[ -f package-lock.json ]]; then
+        command npx "$@"
+    else
+        command bunx "$@"
+    fi
+}
+
+function pyenv() {
+    if [[ ! -f .venv ]]; then
+        uv venv "$@"
+    fi
+    source .venv/bin/activate
+}
