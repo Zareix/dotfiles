@@ -12,7 +12,7 @@ alias lsalg="ls -alg"
 alias lslag="ls -alg"
 alias lt="ls --tree"
 alias tree="lt"
-if ! command -v batcat &>/dev/null; then
+if ! type "batcat" &>/dev/null; then
     alias cat="bat --theme=OneHalfDark"
 else
     alias cat="batcat --theme=OneHalfDark"
