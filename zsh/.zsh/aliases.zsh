@@ -12,7 +12,11 @@ alias lsalg="ls -alg"
 alias lslag="ls -alg"
 alias lt="ls --tree"
 alias tree="lt"
-alias cat="batcat --theme=OneHalfDark"
+if ! command -v batcat &>/dev/null; then
+    alias cat="bat --theme=OneHalfDark"
+else
+    alias cat="batcat --theme=OneHalfDark"
+fi
 alias py="python"
 alias tf="terraform"
 alias d="docker"
