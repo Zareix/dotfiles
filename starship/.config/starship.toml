@@ -19,7 +19,13 @@ disabled = true
 command = 'if [[ $(uname -a) == *"orbstack"* ]]; then echo "orb/"; else echo "ssh/"; fi;'
 format = 'using [$output]($style)'
 style = "dimmed green"
-when = 'if [ -n "$SSH_CONNECTION" ]; then return 0; else return 1; fi'
+when = ''' test -n "$SSH_CONNECTION" '''
+
+[custom.docker_context]
+format = "[🐳/$output]($style) "
+style = "blue bold"
+when = ''' (test $(docker context show) != "orbstack" && test $(docker context show) != "default") || test -n "$DOCKER_HOST" '''
+command = 'if [[ -n $DOCKER_HOST ]]; then echo $DOCKER_HOST; else docker context show; fi;'
 
 [directory]
 format = "at [$path]($style)[$read_only]($read_only_style)"
@@ -30,8 +36,7 @@ truncation_length = 4
 truncation_symbol = "…/"
 
 [docker_context]
-format = "[$symbol/$context]($style) "
-symbol = "🐳"
+disabled = true
 
 [env_var.DISTRO_ICON]
 disabled = false
