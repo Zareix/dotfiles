@@ -16,10 +16,10 @@ disabled = true
 disabled = true
 
 [custom.using]
-command = 'if [ -n "$SSH_CONNECTION" ]; then if [[ $(uname -a) == *"orbstack"* ]]; then echo "orb/"; else echo "ssh/"; fi; else echo ""; fi'
+command = 'if [[ $(uname -a) == *"orbstack"* ]]; then echo "orb/"; else echo "ssh/"; fi;'
 format = 'using [$output]($style)'
 style = "dimmed green"
-when = true
+when = 'if [ -n "$SSH_CONNECTION" ]; then return 0; else return 1; fi'
 
 [directory]
 format = "at [$path]($style)[$read_only]($read_only_style)"
