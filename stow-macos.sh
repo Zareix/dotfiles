@@ -1,3 +1,3 @@
 #!/bin/sh
 
-stow --adopt git nano fastfetch starship zsh macos
+stow --adopt git nano fastfetch powerline10k zsh macos
