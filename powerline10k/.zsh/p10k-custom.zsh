@@ -1,6 +1,6 @@
+# ---- UTILS ----
 function detect_filenames() {
-  local filenames="$@"
-  for filename in $filenames; do
+  for filename in "$@"; do
     if [ -f "$filename" ]; then
       return 0
     fi
@@ -18,6 +18,7 @@ function detect_file_extensions() {
   return 1
 }
 
+# ---- RIGHT PROMPT ----
 function prompt_my_bun_version() {
   local version=""
   if detect_filenames "bun.lockb"; then
@@ -54,3 +55,10 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS+=my_bun_version
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS+=my_node_version
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS+=my_terraform_version
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS+=my_docker_context
+
+# ---- LEFT PROMPT ----
+function prompt_my_distro_icon() {
+  p10k segment -t "$DISTRO_ICON" -f white
+}
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=("my_distro_icon" "${POWERLEVEL9K_LEFT_PROMPT_ELEMENTS[@]}")
