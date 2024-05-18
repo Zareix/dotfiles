@@ -1,6 +1,8 @@
-if test -n "$(find /etc -maxdepth 1 -name '*-release' -print -quit)"; then
+LFILE="/etc/*-release"
+MFILE="/System/Library/CoreServices/SystemVersion.plist"
+if [[ -f $LFILE ]]; then
   _distro=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
-elif test -n "$(find /System/Library/CoreServices -maxdepth 1 -name 'SystemVersion.plist' -print -quit)"; then
+elif [[ -f $MFILE ]]; then
   _distro="macos"
 fi
 
