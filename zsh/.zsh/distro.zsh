@@ -10,10 +10,15 @@ if [[ $_hostname == *rpi* || $_hostname == *raspberry* ]]; then
   _distro="raspbian"
 fi
 
+if [[ -d /etc/pve ]]; then
+  _distro="proxmox"
+fi
+
 case $_distro in
 *kali*) ICON="" ;;
 *arch*) ICON="" ;;
 *debian*) ICON="" ;;
+*proxmox*) ICON="" ;;
 *raspbian*) ICON="" ;;
 *ubuntu*) ICON="" ;;
 *elementary*) ICON="" ;;
