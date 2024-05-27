@@ -51,10 +51,19 @@ function prompt_my_docker_context() {
   p10k segment -t "$context" -f blue
 }
 
+function prompt_my_check_reboot() {
+  local reboot=""
+  if [[ -f /var/run/reboot-required ]]; then
+    reboot="🔄 required"
+  fi
+  p10k segment -t "$reboot" -f red
+}
+
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS+=my_bun_version
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS+=my_node_version
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS+=my_terraform_version
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS+=my_docker_context
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS+=my_check_reboot
 
 # ---- LEFT PROMPT ----
 function prompt_my_distro_icon() {

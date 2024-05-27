@@ -32,5 +32,3 @@ eval "$(zoxide init --cmd cd zsh)"
 # Load p10k
 source ~/.p10k.zsh
 [[ -f ~/.zsh/p10k-custom.zsh ]] && source ~/.zsh/p10k-custom.zsh
-
-[[ -f ~/.zsh/check_reboots.zsh ]] && ~/.zsh/check_reboots.zsh
