@@ -59,13 +59,7 @@ function prompt_my_check_reboot() {
   p10k segment -t "$reboot" -f red
 }
 
-function prompt_my_context() {
-  local context=""
-  context="$(whoami)@$(hostname)"
-  p10k segment -t "$context" -f grey
-}
-
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(my_bun_version my_node_version my_terraform_version my_docker_context my_check_reboot "${POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS[@]}" my_context)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(my_bun_version my_node_version my_terraform_version my_docker_context my_check_reboot "${POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS[@]}")
 
 # ---- LEFT PROMPT ----
 function prompt_my_distro_icon() {
