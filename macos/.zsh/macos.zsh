@@ -4,7 +4,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 
 # Load fnm
-eval "$(fnm env --use-on-cd)"
+eval "$(fnm env --use-on-cd --log-level quiet)"
 
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 alias batcat="bat"

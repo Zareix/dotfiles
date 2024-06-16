@@ -59,15 +59,20 @@ function prompt_my_check_reboot() {
   p10k segment -t "$reboot" -f red
 }
 
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS+=my_bun_version
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS+=my_node_version
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS+=my_terraform_version
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS+=my_docker_context
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS+=my_check_reboot
+function prompt_my_context() {
+  local context=""
+  context="$(whoami)@$(hostname)"
+  p10k segment -t "$context" -f grey
+}
+
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(my_bun_version my_node_version my_terraform_version my_docker_context my_check_reboot "${POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS[@]}" my_context)
 
 # ---- LEFT PROMPT ----
 function prompt_my_distro_icon() {
   p10k segment -t "$DISTRO_ICON" -f white
 }
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=("my_distro_icon" "${POWERLEVEL9K_LEFT_PROMPT_ELEMENTS[@]}")
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(my_distro_icon "${POWERLEVEL9K_LEFT_PROMPT_ELEMENTS[@]}")
+if [[ "$TERM_PROGRAM" != "WarpTerminal" ]]; then
+  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS+=prompt_char
+fi
