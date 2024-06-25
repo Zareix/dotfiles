@@ -48,20 +48,26 @@
 
   # Left prompt segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
-    # context                 # user@host
+    my_distro_icon
     dir                       # current directory
     vcs                       # git status
-    # command_execution_time  # previous command duration
-    # virtualenv              # python virtual environment
-    # prompt_char               # prompt symbol
   )
+  if [[ "$TERM_PROGRAM" == "WarpTerminal" ]]; then
+    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS+=(newline)
+  fi
+  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS+=prompt_char
 
   # Right prompt segments.
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
+    my_bun_version
+    my_node_version
+    my_terraform_version
+    my_docker_context
+    my_check_reboot
     command_execution_time    # previous command duration
     virtualenv                # python virtual environment
-    #context                   # user@host
-    # time                    # current time
+    my_context
+    newline
   )
 
   # Basic style options that define the overall prompt look.

@@ -69,14 +69,7 @@ function prompt_my_context() {
   p10k segment -t "$context"
 }
 
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(my_bun_version my_node_version my_terraform_version my_docker_context my_check_reboot "${POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS[@]}" my_context)
-
 # ---- LEFT PROMPT ----
 function prompt_my_distro_icon() {
   p10k segment -t "$DISTRO_ICON" -f white
 }
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(my_distro_icon "${POWERLEVEL9K_LEFT_PROMPT_ELEMENTS[@]}")
-if [[ "$TERM_PROGRAM" != "WarpTerminal" ]]; then
-  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS+=prompt_char
-fi
