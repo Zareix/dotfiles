@@ -1,4 +1,3 @@
-alias sudo='sudo '
 alias grep="grep --color"
 alias json="jq"
 alias ..="cd .."
@@ -27,6 +26,8 @@ alias dup="docker compose up -d"
 
 if [ "$EUID" -eq 0 ]; then
     alias sudo=""
+else
+    alias sudo="sudo "
 fi
 
 function dc-dev() {
