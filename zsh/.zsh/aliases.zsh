@@ -1,3 +1,4 @@
+alias sudo='sudo '
 alias grep="grep --color"
 alias json="jq"
 alias ..="cd .."
