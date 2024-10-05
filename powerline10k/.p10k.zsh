@@ -51,11 +51,9 @@
     my_distro_icon
     dir                       # current directory
     vcs                       # git status
+    newline
+    prompt_char
   )
-  if [[ "$TERM_PROGRAM" == "WarpTerminal" ]]; then
-    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS+=(newline)
-  fi
-  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS+=prompt_char
 
   # Right prompt segments.
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
@@ -167,11 +165,7 @@
   #   - always:   Trim down prompt when accepting a command line.
   #   - same-dir: Trim down prompt when accepting a command line unless this is the first command
   #               typed after changing current working directory.
-  if [[ "$TERM_PROGRAM" == "WarpTerminal" ]]; then
-    typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=off
-  else
-    typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=same-dir
-  fi
+  typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=off
 
   # Instant prompt mode.
   #
