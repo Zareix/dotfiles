@@ -21,6 +21,14 @@
     },
     "uptime",
     "packages",
-    "localip"
+    {
+      "type": "localip",
+      "showPrefixLen": false
+    },
+    {
+      "type": "localip",
+      "showPrefixLen": false,
+      "namePrefix": "tailscale0"
+    }
   ]
 }
