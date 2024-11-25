@@ -26,9 +26,10 @@
       "showPrefixLen": false
     },
     {
-      "type": "localip",
-      "showPrefixLen": false,
-      "namePrefix": "tailscale0"
+      "key": "Tailscale IP",
+      "type": "command",
+      "shell": "/bin/zsh",
+      "text": "/Applications/Tailscale.app/Contents/MacOS/Tailscale ip -4 || tailscale ip -4"
     }
   ]
 }
