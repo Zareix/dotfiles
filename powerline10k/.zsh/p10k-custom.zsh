@@ -45,8 +45,9 @@ function prompt_my_terraform_version() {
 
 function prompt_my_docker_context() {
   local context=""
-  if [[ -n $DOCKER_HOST ]]; then
-    context="🐳 $DOCKER_HOST"
+  local docker_context=$(docker context show)
+  if [[ "$docker_context" != "default" && "$docker_context" != "orbstack" ]]; then
+    context="🐳/$docker_context"
   fi
   p10k segment -t "$context" -f blue
 }
