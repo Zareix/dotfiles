@@ -21,10 +21,6 @@ source "$P10K_HOME/powerlevel10k.zsh-theme"
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
-# Prompt fastfetch when not in VSCode
-if [[ "$TERM_PROGRAM" != "vscode" ]]; then
-  fastfetch --logo $DISTRO
-fi
 
 # Load zoxide
 eval "$(zoxide init --cmd cd zsh)"
@@ -32,3 +28,8 @@ eval "$(zoxide init --cmd cd zsh)"
 # Load p10k
 source ~/.p10k.zsh
 [[ -f ~/.zsh/p10k-custom.zsh ]] && source ~/.zsh/p10k-custom.zsh
+
+# Prompt fastfetch when not in VSCode
+if [[ "$TERM_PROGRAM" != "vscode" ]]; then
+  fastfetch --logo $DISTRO
+fi
