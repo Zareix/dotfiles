@@ -6,6 +6,10 @@ source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 # Load fnm
 eval "$(fnm env --use-on-cd --log-level quiet)"
 
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 alias batcat="bat"
 alias bwsession="bwses"
