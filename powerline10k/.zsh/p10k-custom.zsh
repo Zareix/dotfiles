@@ -38,7 +38,7 @@ function prompt_my_node_version() {
 function prompt_my_terraform_version() {
   local version=""
   if detect_file_extensions "tf"; then
-    version="󱁢 $(terraform version -json | jq -r .terraform_version)"
+    version="󱁢 $(tofu version -json | jq -r .terraform_version)"
   fi
   p10k segment -t "$version" -f magenta
 }

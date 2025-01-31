@@ -18,7 +18,7 @@ else
     alias cat="batcat --theme=OneHalfDark"
 fi
 alias py="python"
-alias tf="terraform"
+alias tf="tofu"
 alias d="docker"
 alias dc="docker compose"
 alias dup="docker compose up -d"
