@@ -22,7 +22,8 @@ function detect_file_extensions() {
 function prompt_my_bun_version() {
   local version=""
   if detect_filenames "bun.lockb"; then
-    version="🍞 $(bun --version)"
+    vtemp=$(bun --version 2>/dev/null || echo "unknown")
+    version="🍞 $vtemp"
   fi
   p10k segment -t "$version"
 }
@@ -30,7 +31,8 @@ function prompt_my_bun_version() {
 function prompt_my_node_version() {
   local version=""
   if detect_filenames "package-lock.json" "yarn.lock" "pnpm-lock.yaml"; then
-    version="󰎙 $(node --version)"
+    vtemp=$(node --version 2>/dev/null || echo "unknown")
+    version="󰎙 $vtemp"
   fi
   p10k segment -t "$version" -f green
 }
@@ -38,14 +40,15 @@ function prompt_my_node_version() {
 function prompt_my_terraform_version() {
   local version=""
   if detect_file_extensions "tf"; then
-    version="󱁢 $(tofu version -json | jq -r .terraform_version)"
+    vtemp=$(tofu version -json 2>/dev/null || echo "{ \"terraform_version\": \"unknown\" }")
+    version="󱁢 $(echo "$vtemp" | jq -r '.terraform_version')"
   fi
   p10k segment -t "$version" -f magenta
 }
 
 function prompt_my_docker_context() {
   local context=""
-  local docker_context=$(docker context show)
+  local docker_context=$(docker context show 2>/dev/null || echo "default")
   if [[ "$docker_context" != "default" && "$docker_context" != "orbstack" ]]; then
     context="🐳/$docker_context"
   fi
