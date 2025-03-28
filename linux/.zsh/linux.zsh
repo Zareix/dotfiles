@@ -16,6 +16,3 @@ if [[ $_hostname == *rpi* || $_hostname == *raspberry* ]]; then
 
   export NEOFETCH_OS="Raspbian"
 fi
-
-# Auto-Warpify
-printf 'P$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh", "uname": "Linux" }}�'
