@@ -6,6 +6,9 @@ source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 # Load fnm
 eval "$(fnm env --use-on-cd --log-level quiet)"
 
+# Load cargo/rust
+. "$HOME/.cargo/env"
+
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
