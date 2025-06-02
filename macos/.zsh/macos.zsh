@@ -9,9 +9,23 @@ eval "$(fnm env --use-on-cd --log-level quiet)"
 # Load cargo/rust
 . "$HOME/.cargo/env"
 
+# Load libpq
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/raphaelgc/Library/pnpm"
+case ":$PATH:" in
+*":$PNPM_HOME:"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# Java
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 # go
 export GOPATH="$HOME/go"
