@@ -63,6 +63,7 @@
     my_docker_context
     my_check_reboot
     command_execution_time    # previous command duration
+    my_python_version
     virtualenv                # python virtual environment
     my_context
     newline

@@ -8,6 +8,15 @@ function detect_filenames() {
   return 1
 }
 
+function detect_folders() {
+  for foldername in "$@"; do
+    if [ -d "$foldername" ]; then
+      return 0
+    fi
+  done
+  return 1
+}
+
 function detect_file_extensions() {
   for extension in "$@"; do
     files=($(find ./ -maxdepth 1 -name "*.$extension"))
@@ -21,7 +30,7 @@ function detect_file_extensions() {
 # ---- RIGHT PROMPT ----
 function prompt_my_bun_version() {
   local version=""
-  if detect_filenames "bun.lockb"; then
+  if detect_filenames "bun.lockb" "bun.lock"; then
     vtemp=$(bun --version 2>/dev/null || echo "unknown")
     version="🍞 $vtemp"
   fi
@@ -53,6 +62,18 @@ function prompt_my_docker_context() {
     context="🐳/$docker_context"
   fi
   p10k segment -t "$context" -f blue
+}
+
+function prompt_my_python_version() {
+  local version=""
+  if detect_folders ".venv"; then
+    vtemp=$(./.venv/bin/python --version 2>&1 | awk '{print $2}' || echo "unknown")
+    version="🐍 $vtemp"
+  elif detect_file_extensions "py"; then
+    vtemp=$(python3 --version 2>&1 | awk '{print $2}' || echo "unknown")
+    version="🐍 $vtemp"
+  fi
+  p10k segment -t "$version" -f magenta
 }
 
 function prompt_my_check_reboot() {
