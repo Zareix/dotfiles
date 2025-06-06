@@ -62,6 +62,7 @@
     my_terraform_version
     my_docker_context
     my_check_reboot
+    my_kube_context
     command_execution_time    # previous command duration
     my_python_version
     virtualenv                # python virtual environment
@@ -149,6 +150,8 @@
   typeset -g POWERLEVEL9K_VCS_{COMMITS_AHEAD,COMMITS_BEHIND}_MAX_NUM=1
   # Remove space between '⇣' and '⇡' and all trailing spaces.
   typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='${${${P9K_CONTENT/⇣* :⇡/⇣⇡}// }//:/ }'
+
+  # typeset -g POWERLEVEL9K_MY_KUBE_CONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens'
 
   # Grey current time.
   typeset -g POWERLEVEL9K_TIME_FOREGROUND=$grey

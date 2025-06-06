@@ -22,6 +22,7 @@ alias tf="tofu"
 alias d="docker"
 alias dc="docker compose"
 alias dup="docker compose up -d"
+alias k="kubectl"
 # alias dup-dev="docker compose -f docker-compose.dev.yml up -d"
 
 if [ "$EUID" -eq 0 ]; then

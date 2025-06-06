@@ -1,14 +1,28 @@
 # ---- UTILS ----
 function detect_filenames() {
-  for filename in "$@"; do
-    if [ -f "$filename" ]; then
-      return 0
-    fi
-  done
+  _p9k_upglob "$1" -.
+  local -i idx=$?
+  if (($idx > 0)); then
+    return 0
+  fi
   return 1
+
+  # for filename in "$@"; do
+  #   if [ -f "$filename" ]; then
+  #     return 0
+  #   fi
+  # done
+  # return 1
 }
 
 function detect_folders() {
+  # _p9k_upglob "$1" -.
+  # local -i idx=$?
+  # echo "DEBUG: detect_folder: idx=$idx, args=$*"
+  # if (($idx > 0)); then
+  #   return 0
+  # fi
+  # return 1
   for foldername in "$@"; do
     if [ -d "$foldername" ]; then
       return 0
@@ -18,28 +32,34 @@ function detect_folders() {
 }
 
 function detect_file_extensions() {
-  for extension in "$@"; do
-    files=($(find ./ -maxdepth 1 -name "*.$extension"))
-    if [ ${#files[@]} -gt 0 ]; then
-      return 0
-    fi
-  done
+  _p9k_upglob "$1" -.
+  local -i idx=$?
+  if (($idx > 0)); then
+    return 0
+  fi
   return 1
+  # for extension in "$@"; do
+  #   files=($(find ./ -maxdepth 1 -name "*.$extension"))
+  #   if [ ${#files[@]} -gt 0 ]; then
+  #     return 0
+  #   fi
+  # done
+  # return 1
 }
 
 # ---- RIGHT PROMPT ----
 function prompt_my_bun_version() {
   local version=""
-  if detect_filenames "bun.lockb" "bun.lock"; then
+  if detect_filenames "bun.lock*"; then
     vtemp=$(bun --version 2>/dev/null || echo "unknown")
     version="🍞 $vtemp"
   fi
-  p10k segment -t "$version"
+  p10k segment -t "$version" -f sandybrown
 }
 
 function prompt_my_node_version() {
   local version=""
-  if detect_filenames "package-lock.json" "yarn.lock" "pnpm-lock.yaml"; then
+  if detect_filenames "package-lock.json|yarn.lock|pnpm-lock.yaml"; then
     vtemp=$(node --version 2>/dev/null || echo "unknown")
     version="󰎙 $vtemp"
   fi
@@ -48,7 +68,7 @@ function prompt_my_node_version() {
 
 function prompt_my_terraform_version() {
   local version=""
-  if detect_file_extensions "tf"; then
+  if detect_file_extensions "*.tf"; then
     vtemp=$(tofu version -json 2>/dev/null || echo "{ \"terraform_version\": \"unknown\" }")
     version="󱁢 $(echo "$vtemp" | jq -r '.terraform_version')"
   fi
@@ -64,12 +84,26 @@ function prompt_my_docker_context() {
   p10k segment -t "$context" -f blue
 }
 
+function prompt_my_kube_context() {
+  if command -v kubectl &>/dev/null; then
+    local context=$(kubectl config current-context 2>/dev/null || echo "unknown")
+    local namespace=$(kubectl config view --minify -o jsonpath='{..namespace}' 2>/dev/null || echo "default")
+    if [[ ("$context" != "orbstack" && "$context" != "unknown") || "$namespace" != "default" ]]; then
+      p10k segment -t "☸️  $context/$namespace" -f blue
+    else
+      p10k segment -t ""
+    fi
+  else
+    p10k segment -t ""
+  fi
+}
+
 function prompt_my_python_version() {
   local version=""
   if detect_folders ".venv"; then
     vtemp=$(./.venv/bin/python --version 2>&1 | awk '{print $2}' || echo "unknown")
     version="🐍 $vtemp"
-  elif detect_file_extensions "py"; then
+  elif detect_file_extensions "*.py"; then
     vtemp=$(python3 --version 2>&1 | awk '{print $2}' || echo "unknown")
     version="🐍 $vtemp"
   fi
