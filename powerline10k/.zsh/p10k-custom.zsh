@@ -86,13 +86,20 @@ function prompt_my_docker_context() {
 
 function prompt_my_kube_context() {
   if command -v kubectl &>/dev/null; then
-    local context=$(kubectl config current-context 2>/dev/null || echo "unknown")
-    local namespace=$(kubectl config view --minify -o jsonpath='{..namespace}' 2>/dev/null || echo "default")
-    if [[ ("$context" != "orbstack" && "$context" != "unknown") || "$namespace" != "default" ]]; then
-      p10k segment -t "☸️  $context/$namespace" -f blue
-    else
+    local is_cluster_running=$(kubectl cluster-info 2>/dev/null | grep -q "is running" && echo "yes" || echo "no")
+    if [[ "$is_cluster_running" == "no" ]]; then
       p10k segment -t ""
+      return
     fi
+    local context=$(kubectl config current-context 2>/dev/null)
+    if [[ -z "$context" ]]; then
+      context="default"
+    fi
+    local namespace=$(kubectl config view --minify -o jsonpath='{..namespace}' 2>/dev/null)
+    if [[ -z "$namespace" ]]; then
+      namespace="default"
+    fi
+    p10k segment -t "☸️  $context/$namespace" -f blue
   else
     p10k segment -t ""
   fi
