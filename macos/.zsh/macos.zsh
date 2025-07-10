@@ -39,6 +39,7 @@ alias python3="python3.13"
 alias python="python3"
 alias oif="open $PWD"
 alias ofd="open $PWD"
+alias rm="trash"
 
 function pfd() {
     osascript 2>/dev/null <<EOF

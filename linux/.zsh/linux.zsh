@@ -3,6 +3,7 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 alias python="python3"
+alias rm="gio trash"
 
 # If host is a Raspberry Pi
 _hostname=$(hostname)
