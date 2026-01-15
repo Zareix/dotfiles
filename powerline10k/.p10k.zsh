@@ -59,6 +59,7 @@
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
     my_bun_version
     my_node_version
+    my_go_version
     my_terraform_version
     my_docker_context
     my_check_reboot

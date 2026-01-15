@@ -57,6 +57,15 @@ function prompt_my_bun_version() {
   p10k segment -t "$version" -f sandybrown
 }
 
+function prompt_my_go_version() {
+  local version=""
+  if detect_filenames "go.mod"; then
+    vtemp=$(go version 2>/dev/null | awk '{print $3}' | sed 's/go//g' || echo "unknown")
+    version="🐹 $vtemp"
+  fi
+  p10k segment -t "$version" -f cyan
+}
+
 function prompt_my_node_version() {
   local version=""
   if detect_filenames "package-lock.json|yarn.lock|pnpm-lock.yaml"; then

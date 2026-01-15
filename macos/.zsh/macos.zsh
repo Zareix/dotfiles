@@ -31,6 +31,8 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 
+export PATH="/Users/raphaelgc/.local/bin:$PATH"
+
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 alias batcat="bat"
 alias bwsession="bwses"

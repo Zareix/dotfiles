@@ -21,7 +21,6 @@ source "$P10K_HOME/powerlevel10k.zsh-theme"
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
-
 # Load zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
