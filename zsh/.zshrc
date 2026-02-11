@@ -30,7 +30,7 @@ eval "$(zoxide init --cmd cd zsh)"
 source ~/.p10k.zsh
 [[ -f ~/.zsh/p10k-custom.zsh ]] && source ~/.zsh/p10k-custom.zsh
 
-# Prompt fastfetch when not in VSCode
-if [[ "$TERM_PROGRAM" != "vscode" ]]; then
+# Prompt fastfetch when not in VSCode or Zed
+if [[ "$TERM_PROGRAM" != "vscode" && "$TERM_PROGRAM" != "zed" ]]; then
   fastfetch --logo $DISTRO
 fi
