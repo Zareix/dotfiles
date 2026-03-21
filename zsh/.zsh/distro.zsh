@@ -1,7 +1,6 @@
-MFILE="/System/Library/CoreServices/SystemVersion.plist"
 if [[ -f /etc/os-release || -f /etc/lsb-release ]]; then
   _distro=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
-elif [[ -f $MFILE ]]; then
+elif [[ -f /System/Library/CoreServices/SystemVersion.plist ]]; then
   _distro="macos"
 fi
 
@@ -9,6 +8,7 @@ _hostname=$(hostname)
 
 if [[ $_hostname == *rpi* || $_hostname == *raspberry* ]]; then
   _distro="raspbian"
+  export NEOFETCH_OS="Raspbian"
 fi
 
 if [[ -d /etc/pve ]]; then

@@ -1,23 +1,21 @@
 [user]
 	email = raphcatarino@gmail.com
 	name = Raphaël Catarino
-    signingKey = ""
 [core]
-    excludesFile = ~/.mygitignore
+  excludesFile = ~/.mygitignore
 	ignorecase = false
 [init]
-    defaultBranch = main
+  defaultBranch = main
 [pull]
-    rebase = false
+  rebase = false
 [gpg]
-    program = gpg
+  program = gpg
 	format = openpgp
 [commit]
-    gpgSign = false
+  gpgSign = false
 [tag]
-    forceSignAnnotated = false
+  forceSignAnnotated = false
 [gpg "ssh"]
 	program = ssh-keygen
-	allowedSignersFile = ""
 [credential]
-    helper = store
+  helper = store

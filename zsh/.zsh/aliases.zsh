@@ -27,8 +27,6 @@ alias k="kubectl"
 
 if [ "$EUID" -eq 0 ]; then
     alias sudo=""
-else
-    alias sudo="sudo "
 fi
 
 function dc-dev() {
@@ -68,9 +66,7 @@ function iplocal() {
 }
 
 function p() {
-    if [[ -f bun.lockb ]]; then
-        command bun "$@"
-    elif [[ -f pnpm-lock.yaml ]]; then
+    if [[ -f pnpm-lock.yaml ]]; then
         command pnpm "$@"
     elif [[ -f yarn.lock ]]; then
         command yarn "$@"
@@ -82,9 +78,7 @@ function p() {
 }
 
 function px() {
-    if [[ -f bun.lockb ]]; then
-        command bunx "$@"
-    elif [[ -f pnpm-lock.yaml ]]; then
+    if [[ -f pnpm-lock.yaml ]]; then
         command pnpx "$@"
     elif [[ -f yarn.lock ]] || [[ -f package-lock.json ]]; then
         command npx "$@"
