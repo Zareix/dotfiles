@@ -42,6 +42,9 @@ alias python="python3"
 alias oif="open $PWD"
 alias ofd="open $PWD"
 alias rm="trash"
+alias bumpversion="/Users/raphaelgc/Developer/PROJECTS/bump-version/bin/bump-version"
+alias bump-version="bumpversion"
+alias bump="bumpversion"
 
 function pfd() {
     osascript 2>/dev/null <<EOF
