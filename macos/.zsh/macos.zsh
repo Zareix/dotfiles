@@ -12,9 +12,6 @@ eval "$(fnm env --use-on-cd --log-level quiet)"
 # Load libpq
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 
 # pnpm
 export PNPM_HOME="/Users/raphaelgc/Library/pnpm"
