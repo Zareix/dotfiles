@@ -93,3 +93,5 @@ function pyenv() {
     fi
     source .venv/bin/activate
 }
+alias venv="pyenv"
+alias pyvenv="pyenv"
