@@ -1,3 +1,3 @@
 #!/bin/sh
 
-stow --adopt git nano fastfetch powerline10k zsh linux
+stow --adopt git nano fastfetch powerlevel10k zsh linux

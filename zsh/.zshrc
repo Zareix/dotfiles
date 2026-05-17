@@ -37,3 +37,8 @@ printf 'P$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh", "uname":
 if [[ "$TERM_PROGRAM" != "vscode" && "$TERM_PROGRAM" != "zed" ]]; then
   fastfetch --logo $DISTRO
 fi
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/raphaelgc/.lmstudio/bin"
+# End of LM Studio CLI section
+

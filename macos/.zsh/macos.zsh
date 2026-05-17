@@ -12,7 +12,6 @@ eval "$(fnm env --use-on-cd --log-level quiet)"
 # Load libpq
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
-
 # pnpm
 export PNPM_HOME="/Users/raphaelgc/Library/pnpm"
 case ":$PATH:" in
@@ -43,7 +42,7 @@ alias bump-version="bumpversion"
 alias bump="bumpversion"
 
 function pfd() {
-    osascript 2>/dev/null <<EOF
+  osascript 2>/dev/null <<EOF
     tell application "Finder"
       return POSIX path of (insertion location as alias)
     end tell
@@ -51,21 +50,21 @@ EOF
 }
 
 function cdf() {
-    cd "$(pfd)"
+  cd "$(pfd)"
 }
 
 function clipcopy() {
-    pbcopy <"${1:-/dev/stdin}"
+  pbcopy <"${1:-/dev/stdin}"
 }
 
 function copypath {
-    local file="${1:-.}"
-    [[ $file = /* ]] || file="$PWD/$file"
-    print -n "${file:a}" | clipcopy || return 1
-    echo \"${file:a}\" copied to clipboard.
+  local file="${1:-.}"
+  [[ $file = /* ]] || file="$PWD/$file"
+  print -n "${file:a}" | clipcopy || return 1
+  echo \"${file:a}\" copied to clipboard.
 }
 
 function bwses() {
-    BW_SESSION=$(bw unlock --raw)
-    export BW_SESSION
+  BW_SESSION=$(bw unlock --raw)
+  export BW_SESSION
 }

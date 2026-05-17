@@ -137,9 +137,9 @@ function prompt_my_check_reboot() {
 function prompt_my_context() {
   local context=""
   if [ "$(whoami)" = "root" ]; then
-    context="%F{#FF5C57}$(whoami)%f%F{242}@$(hostname)%f"
+    context="%F{248}$(whoami)%f%F{242}@$(hostname)%f"
   else
-    context="%F{#F1F1F0}$(whoami)%f%F{242}@$(hostname)%f"
+    context="%F{248}$(whoami)%f%F{242}@$(hostname)%f"
   fi
   p10k segment -t "$context"
 }
