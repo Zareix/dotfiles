@@ -30,15 +30,7 @@ eval "$(zoxide init --cmd cd zsh)"
 source ~/.p10k.zsh
 [[ -f ~/.zsh/p10k-custom.zsh ]] && source ~/.zsh/p10k-custom.zsh
 
-# Auto-Warpify
-printf 'P$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh", "uname": "Linux" }}�'
-
 # Prompt fastfetch when not in VSCode or Zed
 if [[ "$TERM_PROGRAM" != "vscode" && "$TERM_PROGRAM" != "zed" ]]; then
   fastfetch --logo $DISTRO
 fi
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/raphaelgc/.lmstudio/bin"
-# End of LM Studio CLI section
-
