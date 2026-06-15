@@ -13,9 +13,9 @@ alias lslag="ls -alg"
 alias lt="ls --tree"
 alias tree="lt"
 if ! type "batcat" &>/dev/null; then
-    alias cat="bat --theme=OneHalfDark"
+    alias cat="bat"
 else
-    alias cat="batcat --theme=OneHalfDark"
+    alias cat="batcat"
 fi
 alias py="python"
 alias tf="tofu"
