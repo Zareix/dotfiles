@@ -29,6 +29,9 @@ export PATH="$GOPATH/bin:$PATH"
 
 export PATH="/Users/raphaelgc/.local/bin:$PATH"
 
+# sops
+export SOPS_AGE_KEY_FILE="$HOME/.config/sops/age/keys.txt"
+
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 alias batcat="bat"
 alias bwsession="bwses"
