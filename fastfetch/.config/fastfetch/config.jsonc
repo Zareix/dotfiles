@@ -4,31 +4,30 @@
     "separator": "  ",
     "color": {
       "title": "yellow",
-      "keys": "blue",
-    },
+      "keys": "blue"
+    }
   },
   "modules": [
     "title",
     "separator",
-    "os",
     "host",
+    "os",
     "cpu",
     "memory",
     {
       "type": "disk",
-      "showReadOnly": false,
+      "showReadOnly": false
     },
     "uptime",
-    "packages",
     {
       "type": "localip",
-      "showPrefixLen": false,
+      "showPrefixLen": false
     },
     {
       "key": "Tailscale IP",
       "type": "command",
       "shell": "/bin/zsh",
-      "text": "/Applications/Tailscale.app/Contents/MacOS/Tailscale ip -4 || tailscale ip -4",
-    },
-  ],
+      "text": "tailscale ip -4"
+    }
+  ]
 }
