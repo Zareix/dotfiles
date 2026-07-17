@@ -3,9 +3,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Added by OrbStack: command-line tools and integration
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 
-# Load fnm
-eval "$(fnm env --use-on-cd --log-level quiet)"
-
 # Load cargo/rust
 . "$HOME/.cargo/env"
 
